@@ -8,7 +8,7 @@ services:
       - SA_PASSWORD=P@ssw0rd
       - MSSQL_AGENT_ENABLED=true
     ports:
-      - "1438:1438"
+      - "1438:1433"
     networks:
       - zegen_net
     volumes:
