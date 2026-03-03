@@ -1,0 +1,21 @@
+services:
+  sqlsrv:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: zegen-replication-sqlsrv-single
+    hostname: sqlsrv
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=P@ssw0rd
+      - MSSQL_AGENT_ENABLED=true
+    ports:
+      - "1438:1438"
+    networks:
+      - zegen_net
+    volumes:
+      - sql_data:/var/opt/mssql
+    restart: unless-stopped
+
+volumes:
+  sql_data:
+networks:
+  zegen_net:
